@@ -31,7 +31,7 @@ h2 {
 hr.line {
   border: 2px solid #414345;
   border-radius: 5px;
-  width: 230px;
+  width: 200px;
   margin-top: 30px;
 }
 .main-container {
@@ -53,14 +53,28 @@ hr.line {
   justify-content: center;
   /* border: solid 2px palevioletred; */
   border-radius: 30px;
-  margin: 10px 0px 0px 10px;
+  margin: 20px 0px 0px 30px;
   background-color: rgb(214, 214, 214);
 }
 
 .search-input {
   margin-bottom: 10px;
   min-width: 100%;
+}
 
+button {
+  background-color: rgb(58, 195, 244);
+  border-radius: 20px;
+  border: none;
+  color: white;
+  font-size: 16px;
+  margin-top: 20px;
+  width: 100px;
+  height: 30px;
+}
+
+button:hover {
+  background-color: rgb(116, 216, 252);
 }
 
 .cities-button{
@@ -76,7 +90,7 @@ hr.line {
   margin-bottom: 20px;
   border-radius: 10px;
   color: white;
-  font-weight: 100;
+  font-weight: 300;
 }
 
 .city-container {
@@ -84,8 +98,8 @@ hr.line {
   flex-direction: column;
   align-items: flex-start;
   margin-left: 30px;
-  min-width: 80%;
-  margin-top: 10px;
+  min-width: 70%;
+  margin-top: 20px;
 }
 
 .display-city {
@@ -94,6 +108,7 @@ hr.line {
   margin-bottom: 20px;
   /* border: solid 2px palevioletred; */
   border-radius: 30px;
+  padding-bottom: 20px;
 }
 
 .display-city h2 {
@@ -132,8 +147,8 @@ hr.line {
 }
 
 .day {
-  width: 150px;
-  height: 150px;
+  width: 250px;
+  height: 250px;
   text-align: center;
   border: solid 2px black;
   border-radius: 20px; 
