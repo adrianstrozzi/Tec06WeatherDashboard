@@ -12,6 +12,7 @@ let cityTemp = document.getElementById("cityTemp");
 let cityWind = document.getElementById("cityWind");
 let cityHumidity = document.getElementById("cityHumidity");
 let cityUv = document.getElementById("cityUv");
+let iconContainer = document.getElementById("iconContainer")
 
 
 let today = new Date();
@@ -29,12 +30,22 @@ function getCityInfo() {
     })
     .then(function (data) {
       console.log(data);
-      cityName.innerHTML = data.name + " " + date
+      let currentCityIcon = "https://openweathermap.org/img/wn/" + data.weather[0].icon + ".png";
+
+      cityName.innerHTML = data.name + " " + "(" + date + ")" + " "
+      iconContainer.innerHTML = "<img src=" + currentCityIcon + ">"
       cityTemp.innerHTML = data.main.temp + " °C"
       cityWind.innerHTML = data.wind.speed + " MPH"
       cityHumidity.innerHTML = data.main.humidity + " %"
-
     });
 }
 
-searchBtn.addEventListener('click', getCityInfo);
+function saveLastCity() {
+  let lastCity = cityName.textContent
+  localStorage.setItem("lastCity", JSON.stringify(lastCity));
+}
+
+
+
+
+searchBtn.addEventListener('click', getCityInfo, saveLastCity);
