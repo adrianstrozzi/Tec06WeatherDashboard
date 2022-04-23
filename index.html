@@ -26,7 +26,7 @@
         <form>
           <input type="text" placeholder="Search..." name="search" id="inputCityName">
         </form>
-        <button class="search-button" type="submit" id="searchBtn">Search</button>
+        <button class="search-button" type="button" id="searchBtn">Search</button>
         <hr class="line">
       </div>
       <ul class="cities-button">
@@ -44,55 +44,56 @@
     <div class="city-container">
       <div class="display-city">
         <h2 id="cityName">CITY NAME</h2>
-        <div id="iconContainer"></div>
+        <div class="city-icon" id="iconContainer"></div>
         <ul class="city-data">
           <li id="cityTemp">Temp: </li>
           <li id="cityWind">Wind: </li>
           <li id="cityHumidity">Humidity: </li>
-          <li id="cityUv">UV Index: </li>
+          <li id="cityUv" class="city-uv">UV Index:</li>
+          <div class="uv-container" id="uvContainer"></div>
         </ul>
       </div>
       <div class="days-forecast">
         <h2>5-DAY FORECAST</h2>
         <div class="days-container">
           <div class="day">Day 1
-            <div>Image</div>
+            <div class="city-icon-day-one" id="iconContainerDayOne">1</div>
             <ul>
-              <li>Temp: </li>
-              <li>Wind: </li>
-              <li>Humidity: </li>
+              <li id="tempDayOne">Temp: </li>
+              <li id="windDayOne">Wind: </li>
+              <li id="humidityDayOne">Humidity: </li>
             </ul>
           </div>
           <div class="day">Day 2
-            <div>Image</div>
+            <div class="city-icon-day-two" id="iconContainerDayTwo">2</div>
             <ul>
-              <li>Temp: </li>
-              <li>Wind: </li>
-              <li>Humidity: </li>
+              <li id="tempDayTwo">Temp: </li>
+              <li id="windDayTwo">Wind: </li>
+              <li id="humidityDayTwo">Humidity: </li>
             </ul>
           </div>
           <div class="day">Day 3
-            <div>Image</div>
+            <div class="city-icon-day-two" id="iconContainerDayThree">3</div>
             <ul>
-              <li>Temp: </li>
-              <li>Wind: </li>
-              <li>Humidity: </li>
+              <li id="tempDayThree">Temp: </li>
+              <li id="windDayThree">Wind: </li>
+              <li id="humidityDayThree">Humidity: </li>
             </ul>
           </div>
           <div class="day">Day 4
-            <div>Image</div>
+            <div class="city-icon-day-two" id="iconContainerDayFour">4</div>
             <ul>
-              <li>Temp: </li>
-              <li>Wind: </li>
-              <li>Humidity: </li>
+              <li id="tempDayFour">Temp: </li>
+              <li id="windDayFour">Wind: </li>
+              <li id="humidityDayFour">Humidity: </li>
             </ul>
           </div>
           <div class="day">Day 5
-            <div>Image</div>
+            <div class="city-icon-day-two" id="iconContainerDayFive">5</div>
             <ul>
-              <li>Temp: </li>
-              <li>Wind: </li>
-              <li>Humidity: </li>
+              <li id="tempDayFive">Temp: </li>
+              <li id="windDayFive">Wind: </li>
+              <li id="humidityDayFive">Humidity: </li>
             </ul>
           </div>
         </div>
