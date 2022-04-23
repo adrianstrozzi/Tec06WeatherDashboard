@@ -2,7 +2,7 @@
 
 ## <span style="color:violet">Description</span>
 
-> Welcome to the Weather Dashboard! Search a city and get Current Weather data and 5 Day Forecast. Also your last searched cities get saved in a list a become avaialable for quick searches.
+> Welcome to the Weather Dashboard! Search a city and get Current Weather data and 5 Day Forecast. Also your last searched cities get saved in a list a become available for quick searches.
 
 ## <span style="color:violet">How to use</span>
 
@@ -36,4 +36,4 @@ Last searched cities get saved in the **Recent Searchs** and become available fo
 
 ## <span style="color:violet">License</span>
 
-**© 2021 Adrian Strozzi**
+**© 2022 Adrian Strozzi**

@@ -234,12 +234,33 @@ inputCityName.addEventListener("keypress", function (event) {
   }
 });
 
-// function saveLastCity() {
-//   let lastCity = cityNameTitle.textContent
-//   localStorage.setItem("lastCity", JSON.stringify(lastCity));
-// }
+
+// This function saves the Text input by the user
+
+function saveLastCity() {
+  let lastCity = inputCityName.value
+  localStorage.setItem("lastCity", JSON.stringify(lastCity));
+}
+
+
+
+// This function will render the Last city in the last city list
+
+function renderLastCity() {
+  let lastCity = JSON.parse(localStorage.getItem("lastCity"));
+  if (lastCity !== null) {
+    let ul = document.getElementById("last-cities");
+    let li = document.createElement("li");
+    li.appendChild(document.createTextNode(lastCity));
+    ul.appendChild(li);
+  } else {
+    return;
+  }
+}
 
 // Executes functions for current weather and 5 day forecast
 
 searchBtn.addEventListener('click', getCityWeather)
 searchBtn.addEventListener('click', getFiveDaysWeather)
+searchBtn.addEventListener('click', saveLastCity)
+searchBtn.addEventListener('click', renderLastCity)

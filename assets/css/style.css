@@ -50,11 +50,12 @@ hr.line {
 
 .search-container {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   flex-wrap: wrap;
   width: 350px;
   text-align: center;
-  justify-content: center;
+  justify-content: flex-start;
+  align-items: stretch;
   /* border: solid 2px palevioletred; */
   border-radius: 30px;
   margin: 20px 0px 0px 30px;
@@ -91,19 +92,22 @@ button:hover {
 }
 
 .cities-button{
-  list-style: none;
-  padding: 0;
-  margin: 0;
+  list-style: none; 
 }
 
 .cities-button li {
-  background: #e600ff;
+  background-color: #e600ff;
   width: 200px;
   line-height: 2;
-  margin-bottom: 20px;
+  margin: 0px 0px 20px 0px;
   border-radius: 10px;
   color: white;
   font-weight: 300;
+}
+
+.cities-button li:hover {
+  background-color: #f06dff;
+  cursor: pointer;
 }
 
 .city-container {
