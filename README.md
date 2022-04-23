@@ -2,19 +2,28 @@
 
 ## <span style="color:violet">Description</span>
 
-> Welcome to the Weather Dashbpa! This planner uses JQuery and Moment.js to detect the hour of the day and color the time blocks accordingly. Current hour (red), past hour (grey) and future hours (green). You can also make your own notes on an specific hour of the day and save it in the Local Storage.
+> Welcome to the Weather Dashboard! Search a city and get Current Weather data and 5 Day Forecast. Also your last searched cities get saved in a list a become avaialable for quick searches.
 
 ## <span style="color:violet">How to use</span>
 
-Use this **link** to access the Work Day Scheduler: [Adrian Strozzi - Work Day Scheduler](https://adrianstrozzi.github.io/Tec05WorkDayScheduler/)
+Use this **link** to access the Weather Dashboard: [Adrian Strozzi - Weather Dashboard](https://adrianstrozzi.github.io/Tec05WorkDayScheduler/)
 
 ## <span style="color:violet">Usage</span>
 
-Below is an image of all the elements in the Work Day Scheduler Page:
-![mainpage](./assets/images/readme-images/completeApp.png)
+Below is an image of all the elements in the Weather Dashboard:
+![mainpage](./assets/images/readme-images/mainApp.png)
 
-You will find a **Timer** with Date and Time at the top of the date:
-![mainpage](./assets/images/readme-images/dateTime.png)
+You can use the **Search Input & Search Button** to get weather information for the specified city:
+![mainpage](./assets/images/readme-images/searchInput.png)
+
+Get current weather data in the **City Info** section:
+![mainpage](./assets/images/readme-images/cityInfo.png)
+
+Get 5-Day Forecast weather data in the **5-Day Forecast** section:
+![mainpage](./assets/images/readme-images/fiveDays.png)
+
+Last searched cities get saved in the **Recent Searchs** and become available for quick access by just clicking on them:
+![mainpage](./assets/images/readme-images/savedCities.png)
 
 ## <span style="color:violet">Credits</span>
 
