@@ -21,6 +21,47 @@ let uvContainer = document.getElementById("uvContainer");
 let today = new Date();
 let date = today.getMonth() + 1 + '-' + today.getDate() + '-' + today.getFullYear();
 
+let tomorrow = new Date()
+tomorrow.setDate(tomorrow.getDate() + 1)
+let tomorrowOne = new Date()
+tomorrowOne.setDate(tomorrowOne.getDate() + 2)
+let tomorrowTwo = new Date()
+tomorrowTwo.setDate(tomorrowTwo.getDate() + 3)
+let tomorrowThree = new Date()
+tomorrowThree.setDate(tomorrowThree.getDate() + 4)
+let tomorrowFour = new Date()
+tomorrowFour.setDate(tomorrowFour.getDate() + 5)
+
+// dayOneDate = tomorrow.toLocaleDateString("en-US")
+// dayTwoDate = tomorrowOne.toLocaleDateString("en-US")
+// dayThreeDate = tomorrowTwo.toLocaleDateString("en-US")
+// dayFourDate = tomorrowThree.toLocaleDateString("en-US")
+// dayFiveDate = tomorrowFour.toLocaleDateString("en-US")
+
+
+
+console.log(tomorrow.toLocaleDateString("en-US"));
+
+
+
+
+// const tomorrow = new Date(today)
+// tomorrow.setDate(tomorrow.getDate() + 1)
+
+// console.log(tomorrow);
+
+// var targetDate = new Date();
+// targetDate.setDate(targetDate.getDate() + 1);
+
+// Variables for Day Date
+
+let dayOneDate = document.getElementById("dayOneDate")
+let dayTwoDate = document.getElementById("dayTwoDate")
+let dayThreeDate = document.getElementById("dayThreeDate")
+let dayFourDate = document.getElementById("dayFourDate")
+let dayFiveDate = document.getElementById("dayFiveDate")
+
+
 // Variables for 5 Day Forecast Icons
 
 let iconContainerDayOne = document.getElementById("iconContainerDayOne")
@@ -127,6 +168,14 @@ function getFiveDays() {
         })
         .then(function (data) {
           console.log(data);
+
+          dayOneDate.innerHTML = tomorrow.toLocaleDateString("en-US")
+          dayTwoDate.innerHTML = tomorrowOne.toLocaleDateString("en-US")
+          dayThreeDate.innerHTML = tomorrowTwo.toLocaleDateString("en-US")
+          dayFourDate.innerHTML = tomorrowThree.toLocaleDateString("en-US")
+          dayFiveDate.innerHTML = tomorrowFour.toLocaleDateString("en-US")
+
+
           let cityIconOne = "https://openweathermap.org/img/wn/" + data.daily[0].weather[0].icon + ".png";
           let cityIconTwo = "https://openweathermap.org/img/wn/" + data.daily[1].weather[0].icon + ".png";
           let cityIconThree = "https://openweathermap.org/img/wn/" + data.daily[2].weather[0].icon + ".png";
