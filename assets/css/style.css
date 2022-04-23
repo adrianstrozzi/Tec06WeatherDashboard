@@ -35,7 +35,7 @@ h3 {
 hr.line {
   border: 2px solid #414345;
   border-radius: 5px;
-  width: 200px;
+  width: 250px;
   margin-top: 30px;
 }
 .main-container {
@@ -87,6 +87,7 @@ button {
 
 button:hover {
   background-color: rgb(116, 216, 252);
+  cursor: pointer;
 }
 
 .cities-button{
@@ -154,13 +155,12 @@ button:hover {
 }
 
 .days-forecast h2 {
-  margin-left: 20px;
-  margin-bottom: 0px;
+  margin: 30px 0px 0px 20px;
   color: rgb(0, 42, 255);
 }
 
 .days-container {
-  margin-top: 20px;
+  /* margin-top: 20px; */
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
@@ -171,7 +171,7 @@ button:hover {
 
 .day {
   padding-top: 10px;
-  width: 200px;
+  width: 180px;
   height: 200px;
   text-align: center;
 
@@ -194,16 +194,16 @@ button:hover {
   display: inline-block;
 }
 
-.uv-container-low {
+
+.uv-container-high {
   display: inline;
   width: 30px;
   font-size: 16px;
   padding: 5px;
   border-radius: 5px;
   color: white;
-  background-color: green;
+  background-color: red;
 }
-
 .uv-container-moderate {
   display: inline;
   width: 30px;
@@ -214,12 +214,12 @@ button:hover {
   background-color: rgb(195, 195, 2);
 }
 
-.uv-container-high {
+.uv-container-low {
   display: inline;
   width: 30px;
   font-size: 16px;
   padding: 5px;
   border-radius: 5px;
   color: white;
-  background-color: red;
+  background-color: green;
 }

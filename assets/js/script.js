@@ -5,7 +5,7 @@
 let key = "73eea34921fc05972219d902c215429f";
 let inputCityName = document.getElementById("inputCityName")
 let searchBtn = document.getElementById("searchBtn");
-let cityName = document.getElementById("cityName")
+let cityNameTitle = document.getElementById("cityNameTitle")
 
 // Variables for Main City Display
 
@@ -19,39 +19,23 @@ let uvContainer = document.getElementById("uvContainer");
 // Variables to get current day date
 
 let today = new Date();
-let date = today.getMonth() + 1 + '-' + today.getDate() + '-' + today.getFullYear();
+
+// Variables to get 5 days future dates
 
 let tomorrow = new Date()
 tomorrow.setDate(tomorrow.getDate() + 1)
+
 let tomorrowOne = new Date()
 tomorrowOne.setDate(tomorrowOne.getDate() + 2)
+
 let tomorrowTwo = new Date()
 tomorrowTwo.setDate(tomorrowTwo.getDate() + 3)
+
 let tomorrowThree = new Date()
 tomorrowThree.setDate(tomorrowThree.getDate() + 4)
+
 let tomorrowFour = new Date()
 tomorrowFour.setDate(tomorrowFour.getDate() + 5)
-
-// dayOneDate = tomorrow.toLocaleDateString("en-US")
-// dayTwoDate = tomorrowOne.toLocaleDateString("en-US")
-// dayThreeDate = tomorrowTwo.toLocaleDateString("en-US")
-// dayFourDate = tomorrowThree.toLocaleDateString("en-US")
-// dayFiveDate = tomorrowFour.toLocaleDateString("en-US")
-
-
-
-console.log(tomorrow.toLocaleDateString("en-US"));
-
-
-
-
-// const tomorrow = new Date(today)
-// tomorrow.setDate(tomorrow.getDate() + 1)
-
-// console.log(tomorrow);
-
-// var targetDate = new Date();
-// targetDate.setDate(targetDate.getDate() + 1);
 
 // Variables for Day Date
 
@@ -97,8 +81,11 @@ let humidityDayFive = document.getElementById("humidityDayFive")
 // Function that outputs City Info and UV Index
 
 
-function getCityInfo() {
+function getCityWeather() {
   let city = inputCityName.value;
+
+  // Fetch Data by City Name
+
   let weatherRequest = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=metric" + "&appid=" + key
 
   fetch(weatherRequest)
@@ -108,15 +95,20 @@ function getCityInfo() {
     .then(function (data) {
       console.log(data);
 
+      // Once data from City is fetched get correspoding "lat" and "lon" to use in next API call
+
       let lat = data.coord.lat
       let lon = data.coord.lon
 
+      // Get current city icon
+
       let currentCityIcon = "https://openweathermap.org/img/wn/" + data.weather[0].icon + ".png";
+
       let currentCityUv = "https://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + lon + "&appid=" + key;
 
       iconContainer.innerHTML = "<img src=" + currentCityIcon + ">"
 
-      cityName.innerHTML = data.name + " " + "(" + date + ")" + " "
+      cityNameTitle.innerHTML = data.name + " " + "(" + today.toLocaleDateString("en-US") + ")" + " "
       cityTemp.innerHTML = "Temperature: " + data.main.temp + " °C"
       cityWind.innerHTML = "Wind: " + data.wind.speed + " MPH"
       cityHumidity.innerHTML = "Humidity: " + data.main.humidity + " %"
@@ -127,16 +119,19 @@ function getCityInfo() {
         })
         .then(function (data) {
           console.log(data);
-          cityUv.innerHTML = "UV Index: "
+          // cityUv.innerHTML = "UV Index: "
           // cityUv.innerHTML = "UV Index: " + data.current.uvi
           uvContainer.innerHTML = data.current.uvi
           uvIndex = Math.round(data.current.uvi)
           console.log(uvIndex);
-          if (uvIndex === 0 || uvIndex <= 2) {
+          if (uvIndex === 0 && uvIndex <= 2) {
+            uvContainer.classList.remove("uv-container-moderate", "uv-container-high")
             uvContainer.classList.add("uv-container-low")
-          } else if (uvIndex >= 3 || uvIndex <= 5) {
+          } else if (uvIndex >= 3 && uvIndex <= 5) {
+            uvContainer.classList.remove("uv-container-high", "uv-container-low")
             uvContainer.classList.add("uv-container-moderate")
           } else if (uvIndex >= 6) {
+            uvContainer.classList.remove("uv-container-moderate", "uv-container-low")
             uvContainer.classList.add("uv-container-high")
           }
         })
@@ -145,8 +140,11 @@ function getCityInfo() {
 
 // Function that outputs 5 Day Forecast
 
-function getFiveDays() {
+function getFiveDaysWeather() {
   let city = inputCityName.value;
+
+  // Fetch Data by City Name
+
   let weatherRequest = "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&units=metric" + "&APPID=" + key;
 
   fetch(weatherRequest)
@@ -156,8 +154,12 @@ function getFiveDays() {
     .then(function (data) {
       console.log(data);
 
+      // Once data from City is fetched get correspoding "lat" and "lon" to use in next API call
+
       let lat = data.city.coord.lat
       let lon = data.city.coord.lon
+
+      // Fetch Daily data with "lat" and "lon" and exclude other searches like hourly data.
 
       let currentCityFiveDays = "https://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + lon + "&units=metric&exclude=current,minutely,hourly,alerts&appid=" + key;
 
@@ -169,12 +171,15 @@ function getFiveDays() {
         .then(function (data) {
           console.log(data);
 
+          // Add date and change to String
+
           dayOneDate.innerHTML = tomorrow.toLocaleDateString("en-US")
           dayTwoDate.innerHTML = tomorrowOne.toLocaleDateString("en-US")
           dayThreeDate.innerHTML = tomorrowTwo.toLocaleDateString("en-US")
           dayFourDate.innerHTML = tomorrowThree.toLocaleDateString("en-US")
           dayFiveDate.innerHTML = tomorrowFour.toLocaleDateString("en-US")
 
+          // Variables to define how to get weather icon
 
           let cityIconOne = "https://openweathermap.org/img/wn/" + data.daily[0].weather[0].icon + ".png";
           let cityIconTwo = "https://openweathermap.org/img/wn/" + data.daily[1].weather[0].icon + ".png";
@@ -182,11 +187,15 @@ function getFiveDays() {
           let cityIconFour = "https://openweathermap.org/img/wn/" + data.daily[3].weather[0].icon + ".png";
           let cityIconFive = "https://openweathermap.org/img/wn/" + data.daily[4].weather[0].icon + ".png";
 
+          // Add corresponding weather icon for 5 Days
+
           iconContainerDayOne.innerHTML = "<img src=" + cityIconOne + ">"
           iconContainerDayTwo.innerHTML = "<img src=" + cityIconTwo + ">"
           iconContainerDayThree.innerHTML = "<img src=" + cityIconThree + ">"
           iconContainerDayFour.innerHTML = "<img src=" + cityIconFour + ">"
           iconContainerDayFive.innerHTML = "<img src=" + cityIconFive + ">"
+
+          // Get 5 Days Temperature
 
 
           tempDayOne.innerHTML = "Temperature: " + data.daily[0].temp.day + " °C"
@@ -195,6 +204,8 @@ function getFiveDays() {
           tempDayFour.innerHTML = "Temperature: " + data.daily[3].temp.day + " °C"
           tempDayFive.innerHTML = "Temperature: " + data.daily[4].temp.day + " °C"
 
+          // Get 5 Days Wind
+
 
           windDayOne.innerHTML = "Wind: " + data.daily[0].wind_speed + " MPH"
           windDayTwo.innerHTML = "Wind: " + data.daily[1].wind_speed + " MPH"
@@ -202,6 +213,7 @@ function getFiveDays() {
           windDayFour.innerHTML = "Wind: " + data.daily[3].wind_speed + " MPH"
           windDayFive.innerHTML = "Wind: " + data.daily[4].wind_speed + " MPH"
 
+          // Get 5 Days Humidity
 
           humidityDayOne.innerHTML = "Humidity: " + data.daily[0].humidity + " %"
           humidityDayTwo.innerHTML = "Humidity: " + data.daily[1].humidity + " %"
@@ -213,7 +225,7 @@ function getFiveDays() {
 }
 
 
-
+// Add Event Listener to detect "Enter" key in Input and submit data 
 
 inputCityName.addEventListener("keypress", function (event) {
   if (event.key === 'Enter') {
@@ -222,11 +234,12 @@ inputCityName.addEventListener("keypress", function (event) {
   }
 });
 
-
 // function saveLastCity() {
-//   let lastCity = cityName.textContent
+//   let lastCity = cityNameTitle.textContent
 //   localStorage.setItem("lastCity", JSON.stringify(lastCity));
 // }
 
-searchBtn.addEventListener('click', getCityInfo)
-searchBtn.addEventListener('click', getFiveDays)
+// Executes functions for current weather and 5 day forecast
+
+searchBtn.addEventListener('click', getCityWeather)
+searchBtn.addEventListener('click', getFiveDaysWeather)
