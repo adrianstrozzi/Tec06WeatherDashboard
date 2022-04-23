@@ -6,7 +6,7 @@
 
 ## <span style="color:violet">How to use</span>
 
-Use this **link** to access the Weather Dashboard: [Adrian Strozzi - Weather Dashboard](https://adrianstrozzi.github.io/Tec05WorkDayScheduler/)
+Use this **link** to access the Weather Dashboard: [Adrian Strozzi - Weather Dashboard](https://adrianstrozzi.github.io/Tec06WeatherDashboard/)
 
 ## <span style="color:violet">Usage</span>
 
